@@ -39,6 +39,7 @@ void afficherLettres(int tab[4], char tab2[4]){
             tab2[i] = 'G';
         }
     }
+    printf(" | ");
     for(int i = 0; i < 4; i++){
         printf("%c ",tab2[i]);
     }
@@ -117,7 +118,7 @@ void validator(int tab[4], int tab2[4]){
             superTab[i] = 'R';
         }
     }
-    printf("        | %c  %c |\n", superTab[0],superTab[1]);
+    printf(" |         | %c  %c |\n", superTab[0],superTab[1]);
     afficherLettres(tab,tabChar);
     printf("| %c  %c |\n", superTab[2],superTab[3]);
 }
@@ -125,8 +126,8 @@ void validator(int tab[4], int tab2[4]){
 
 int main(){
     srand(time(0));
-    int tab[4] = {3,3,3,4};
-    //responseGen(tab);
+    int tab[4] = {0,0,0,0};
+    responseGen(tab);
     afficher(tab);
     printf("\n");
     int coups = 10;
@@ -143,7 +144,7 @@ int main(){
         } else {
             faux = 4 - bof - reel;
         }
-        printf("\n reel = %d \n bof = %d \n faux = %d",reel,bof,faux);
+        //printf("\n reel = %d \n bof = %d \n faux = %d",reel,bof,faux);
         if(reel > 0 && remplissage > 0){
             for(int i = 0; i < reel; i++){
                 rangementTator(rangement,2);
@@ -161,7 +162,7 @@ int main(){
                 rangementTator(rangement,0);
             }
         }
-        printf("\n - - - - - | #  # |\n");
+        printf("\n | - - - - | #  # |\n");
         validator(tabSaisie,rangement);
         coups--;
     }

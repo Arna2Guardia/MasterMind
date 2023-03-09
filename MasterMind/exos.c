@@ -6,7 +6,6 @@
 
 
 void responseGen(int tab[4]){
-    srand( time( NULL ) );
     for(int i = 0;i < 4; i++){
         tab[i] = 1 + rand() % 6;
     }
@@ -124,11 +123,13 @@ void validator(int tab[4], int tab2[4]){
 }
 
 
+
+
 int main(){
-    srand(time(0));
+    srand( time( NULL ) );
     int tab[4] = {0,0,0,0};
     responseGen(tab);
-    afficher(tab);
+    //afficher(tab);
     printf("\n");
     int coups = 10;
     while(coups > 0){
@@ -162,20 +163,19 @@ int main(){
                 rangementTator(rangement,0);
             }
         }
+        
         printf("\n | - - - - | #  # |\n");
         validator(tabSaisie,rangement);
+        if(reel == 4){
+            break;
+        }
         coups--;
     }
-    // saisirTab(tabSaisie);
-    // printf("\n");
-    // afficher(tabSaisie);
-    // printf("\n");
-    // rangementTator(rangement,2);
-    // afficher(rangement);
-    // printf("\n- - - - | #  # |\n");
-    // validator(tabSaisie,rangement);
-
-
+    if(coups > 0){
+        printf("\nVous etes le Master Mind !\n\n");
+    } else {
+        printf("\nVous avez perdu.. dommage\n\n");
+    }
     system("pause");
     return 1;
 }

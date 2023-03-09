@@ -174,7 +174,8 @@ int main(){
     if(coups > 0){
         printf("\nVous etes le Master Mind !\n\n");
     } else {
-        printf("\nVous avez perdu.. dommage\n\n");
+        printf("\nVous avez perdu.. dommage\n La réponse était:\n");
+        afficher(tab);
     }
     system("pause");
     return 1;
